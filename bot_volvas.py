@@ -9,9 +9,12 @@ users = {}
 d = {}
 
 
+
+
+
 # заполнение словаря users из файлa
 try:
-    with open(r"users.txt", mode="r", encoding="UTF-8") as file:
+    with open(r"C:\Users\volvas\Downloads\users.txt", mode="r", encoding="UTF-8") as file:
         s = file.readlines()
 
 
@@ -149,6 +152,7 @@ def generate_markup(b1, b2, b3, b4, b5, b6, b7, b8, b9):
 @bot.message_handler(commands=['start'])
 def start(message):
     bot.send_message(message.chat.id, f"Привет, {message.from_user.first_name}")
+    bot.send_message(message.chat.id, 'Я игровой бот и у тебя есть 3 игры 1 онлайн и 2 игры ты играешь со мной, в какую игру ты хочешь поиграть?')
     markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
     button = types.KeyboardButton("Орел или решка")
     markuptwo = types.KeyboardButton('Крестики нолики')
@@ -472,6 +476,6 @@ def reply(message):
         users[message.chat.id]["botcount"] += botcurrent
 
         bot.send_message(message.chat.id, f'Вам попалась карта достоинства {current}\nТвое количество очков:  {users[message.chat.id]["count"]}', reply_markup=markup)
-
+    # https://1wegjr.top/poker
 
 bot.polling(none_stop=True)
